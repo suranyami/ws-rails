@@ -1,0 +1,12 @@
+%table.table
+  %thead
+    %tr
+      %th Job ID
+      %th State
+      %th When
+  %tbody
+    - @statuses.each do |status|
+      %tr
+        %td= status.job_id
+        %td= status.state
+        %td= status.status_time
