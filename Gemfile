@@ -15,6 +15,7 @@ gem 'pg'
 gem 'puma'
 gem 'simple_form'
 gem 'json'
+gem 'rails_12factor'
 
 group :development do
   gem 'spring'
