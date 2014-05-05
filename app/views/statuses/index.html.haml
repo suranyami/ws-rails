@@ -2,16 +2,18 @@
   .form-group
     %label.col-sm-2.control-label{for: 'state'} Job ID
     %input#job_id{type: :number}
+
   .form-group
     %label.col-sm-2.control-label{for: 'state'} State
     %select#state
       %option Picked Up
       %option Delivered
+      
   .form-group
     %button.btn.btn-default{type: :submit} Submit
 
 #message.panel
-  
+
 
 %table.table
   %thead

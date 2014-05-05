@@ -15,8 +15,8 @@ class StatusesController < ApplicationController
         begin
           Rails.logger.info data.class
           Rails.logger.info data
-          Status.create!(JSON.parse(data))
-          tubesock.send_data({success: true}.to_json)
+          status = Status.create!(JSON.parse(data))
+          tubesock.send_data({success: true}.merge(status.attributes).to_json)
         rescue => e
           error_message = {success: false, error: e.message}.to_json
           tubesock.send_data error_message

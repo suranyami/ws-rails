@@ -21,9 +21,21 @@ window.Status = class @Status
   handleData: (data) ->
     if data.success
       $('#message').text "Success!"
+      @insertRow(data)
     else
       $('#message').text "A problem occurred."
       console.log data.error
+
+  insertRow: (status) ->
+    tbody = $('tbody')
+    tr = """
+    <tr>
+      <td>#{status.job_id}</td>
+      <td>#{status.state}</td>
+      <td>#{status.status_time}</td>
+    </tr>
+    """
+    tbody.append(tr)
 
 $ ->
   window.stat = new window.Status()
