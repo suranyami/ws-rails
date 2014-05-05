@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'puma'
 gem 'simple_form'
+gem 'json'
 
 group :development do
   gem 'spring'
@@ -30,6 +31,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'coffee-rails-source-maps'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
