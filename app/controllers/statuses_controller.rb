@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
   include Tubesock::Hijack
 
   def index
-    @jobs = Job.all
+    @statuses = Status.all
   end
 
   def register
@@ -13,13 +13,15 @@ class StatusesController < ApplicationController
 
       tubesock.onmessage do |data|
         begin
-          Status.create(data)
-          tubesock.send_data {success: true}
+          Rails.logger.info data.class
+          Rails.logger.info data
+          Status.create!(JSON.parse(data))
+          tubesock.send_data({success: true}.to_json)
         rescue => e
           error_message = {success: false, error: e.message}.to_json
           tubesock.send_data error_message
         end
       end
     end
-
+  end
 end
