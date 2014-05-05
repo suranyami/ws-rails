@@ -13,8 +13,8 @@ class StatusesController < ApplicationController
 
       tubesock.onmessage do |data|
         begin
-          Status
-          tubesock.send_data resp
+          Status.create(data)
+          tubesock.send_data {success: true}
         rescue => e
           error_message = {success: false, error: e.message}.to_json
           tubesock.send_data error_message
