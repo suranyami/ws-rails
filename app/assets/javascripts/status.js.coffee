@@ -1,5 +1,5 @@
 window.Status = class @Status
-  constructor: (url = 'ws://localhost:3000/statuses/register') ->
+  constructor: (url = 'ws://zesty-statuses.herokuapp.com/statuses/register') ->
     @ws = new WebSocket(url)
 
     @ws.onopen = (evt) =>
